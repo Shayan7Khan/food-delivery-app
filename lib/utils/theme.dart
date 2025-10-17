@@ -9,7 +9,7 @@ class AppTextStyles {
   );
 
   // Subheading or Section Title
-  static const x = TextStyle(
+  static const subheading = TextStyle(
     fontFamily: 'SFProSemiBold',
     fontWeight: FontWeight.w500,
     fontSize: 16,

@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/ui/onboarding/onboarding_screen.dart';
 import 'package:food_delivery_app/utils/theme.dart';
-import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,99 +14,63 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => OnboardingScreen()),
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFFF4B3A),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 40.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 30.h,
-                    backgroundColor: Color(0xFFFFFFFF),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/Logo.png',
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: double.infinity,
-                        ),
-                      ),
+            Center(
+              child: CircleAvatar(
+                radius: 80.h,
+                backgroundColor: Color(0xFFFFFFFF),
+                child: Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/Logo.png',
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
                     ),
                   ),
-                  15.verticalSpace,
-                  Text(
-                    "Food For\nEveryone",
+                ),
+              ),
+            ),
+            20.verticalSpace,
+            RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Foodify\n',
                     style: AppTextStyles.heading.copyWith(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 50.h,
-                      height: 0.7.h,
+                      color: const Color(0xFFFFFFFF),
+                      fontSize: 60.h,
                     ),
                   ),
-                  15.verticalSpace,
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 300.h,
-              width: double.infinity,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Positioned(
-                    right: 0.w,
-                    bottom: 0.h,
-                    child: Image.asset(
-                      'assets/images/image_2.png',
-                      fit: BoxFit.contain,
-                      height: 230.h,
-                    ),
-                  ),
-                  Positioned(
-                    left: 0.w,
-                    top: 0.h,
-
-                    child: Image.asset(
-                      'assets/images/image_1.png',
-                      fit: BoxFit.contain,
-                      height: 355.h,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      height: 100.h,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [
-                            const Color(0xFFFF4B3A),
-                            const Color(0xFFFF4B3A).withOpacity(0.2),
-                            const Color(0xFFFF4B3A).withOpacity(0.0),
-                          ],
-                        ),
-                      ),
+                  TextSpan(
+                    text: 'where cravings meet comfort',
+                    style: AppTextStyles.subheading.copyWith(
+                      color: const Color(0xFFFFFFFF),
+                      fontSize: 20.h,
                     ),
                   ),
                 ],
               ),
-            ),
-            25.verticalSpace,
-
-            CustomElevatedButton(
-              backgroundcolor: Color(0xFFFFFFFF),
-              foregroundColorcolor: Color(0xFFFF460A),
-              label: 'Get Started',
             ),
           ],
         ),
