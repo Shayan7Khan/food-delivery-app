@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/ui/auth/login_screen.dart';
 import 'package:food_delivery_app/utils/theme.dart';
 import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
 
@@ -105,6 +106,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               backgroundcolor: Color(0xFFFFFFFF),
               foregroundColorcolor: Color(0xFFFF460A),
               label: 'Get Started',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
             ),
           ],
         ),

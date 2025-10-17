@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/ui/auth/login_screen.dart';
 import 'package:food_delivery_app/ui/onboarding/onboarding_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/ui/splash/splash_screen.dart';
