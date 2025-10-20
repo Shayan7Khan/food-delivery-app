@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/ui/auth/login_screen.dart';
+import 'package:food_delivery_app/ui/auth/login_and_signup_screen.dart';
 import 'package:food_delivery_app/utils/theme.dart';
 import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
 
@@ -45,7 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     "Food For\nEveryone",
                     style: AppTextStyles.heading.copyWith(
                       color: Color(0xFFFFFFFF),
-                      fontSize: 50.h,
+                      fontSize: 50.sp,
                       height: 0.7.h,
                     ),
                   ),
