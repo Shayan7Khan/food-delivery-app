@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/repository/cart_repository.dart';
 import 'package:food_delivery_app/repository/food_repository.dart';
+import 'package:food_delivery_app/ui/cart/cart_page.dart';
 import 'package:food_delivery_app/ui/home/custom_food_card.dart';
 import 'package:food_delivery_app/ui/home/custom_search_bar.dart';
+import 'package:food_delivery_app/ui/home/food_details_page.dart';
 import 'package:food_delivery_app/utils/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -45,7 +48,12 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: EdgeInsets.only(right: 40.w, top: 10.h),
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CartPage()),
+                    );
+                  },
                   icon: Image.asset(
                     'assets/images/shopping-cart.png',
                     height: 22.h,
@@ -93,24 +101,76 @@ class _HomePageState extends State<HomePage> {
                         itemCount: FoodRepository.getAllItems().length,
                         itemBuilder: (context, index) {
                           final item = FoodRepository.getAllItems()[index];
-                          return CustomFoodCard(
-                            title: item.name,
-                            imagePath: item.image,
-                            price: item.price,
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FoodDetailsPage(
+                                    item: item,
+                                    onAddToCart: () {
+                                      CartRepository.addItem(
+                                        item,
+                                      ); // add to cart
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            "${item.name} added to cart!",
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                            child: CustomFoodCard(
+                              title: item.name,
+                              imagePath: item.image,
+                              price: item.price,
+                            ),
                           );
                         },
                         separatorBuilder: (context, index) =>
-                            SizedBox(height: 16.h), 
+                            SizedBox(height: 16.h),
                       ),
                       // Food tab
                       ListView.separated(
                         itemCount: FoodRepository.foodItems['Food']!.length,
                         itemBuilder: (context, index) {
                           final item = FoodRepository.foodItems['Food']![index];
-                          return CustomFoodCard(
-                            title: item.name,
-                            imagePath: item.image,
-                            price: item.price,
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FoodDetailsPage(
+                                    item: item,
+                                    onAddToCart: () {
+                                      CartRepository.addItem(
+                                        item,
+                                      ); // add to cart
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            "${item.name} added to cart!",
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                            child: CustomFoodCard(
+                              title: item.name,
+                              imagePath: item.image,
+                              price: item.price,
+                            ),
                           );
                         },
                         separatorBuilder: (context, index) =>
@@ -122,14 +182,40 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (context, index) {
                           final item =
                               FoodRepository.foodItems['Drinks']![index];
-                          return CustomFoodCard(
-                            title: item.name,
-                            imagePath: item.image,
-                            price: item.price,
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FoodDetailsPage(
+                                    item: item,
+                                    onAddToCart: () {
+                                      CartRepository.addItem(
+                                        item,
+                                      ); // add to cart
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            "${item.name} added to cart!",
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                            child: CustomFoodCard(
+                              title: item.name,
+                              imagePath: item.image,
+                              price: item.price,
+                            ),
                           );
                         },
                         separatorBuilder: (context, index) =>
-                            SizedBox(height: 16.h), 
+                            SizedBox(height: 16.h),
                       ),
                       // Snacks tab
                       ListView.separated(
@@ -137,14 +223,40 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (context, index) {
                           final item =
                               FoodRepository.foodItems['Snacks']![index];
-                          return CustomFoodCard(
-                            title: item.name,
-                            imagePath: item.image,
-                            price: item.price,
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FoodDetailsPage(
+                                    item: item,
+                                    onAddToCart: () {
+                                      CartRepository.addItem(
+                                        item,
+                                      ); // add to cart
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            "${item.name} added to cart!",
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                            child: CustomFoodCard(
+                              title: item.name,
+                              imagePath: item.image,
+                              price: item.price,
+                            ),
                           );
                         },
                         separatorBuilder: (context, index) =>
-                            SizedBox(height: 16.h), // spacing
+                            SizedBox(height: 16.h),
                       ),
                     ],
                   ),

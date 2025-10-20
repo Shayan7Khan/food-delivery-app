@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/ui/home/home_page.dart';
 import 'package:food_delivery_app/utils/theme.dart';
 import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
 import 'package:food_delivery_app/widgets/custom_text_form_field.dart';
@@ -133,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Align(
                                 alignment: AlignmentGeometry.topLeft,
                                 child: GestureDetector(
-                                  onTap: (){},
+                                  onTap: () {},
                                   child: Text(
                                     'Forgot Password?',
                                     style: AppTextStyles.subheading.copyWith(
@@ -148,7 +149,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 backgroundcolor: Color(0xFFFA4A0C),
                                 foregroundColorcolor: Color(0xFFF6F6F9),
                                 label: 'Login',
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => HomePage(),
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           )
