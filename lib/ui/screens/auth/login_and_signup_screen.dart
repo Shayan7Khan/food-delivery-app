@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/ui/home/home_page.dart';
-import 'package:food_delivery_app/utils/theme.dart';
-import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
-import 'package:food_delivery_app/widgets/custom_text_form_field.dart';
+import 'package:food_delivery_app/ui/screens/home/home_page.dart';
+import 'package:food_delivery_app/core/utils/theme.dart';
+import 'package:food_delivery_app/ui/widgets/custom_elevated_button.dart';
+import 'package:food_delivery_app/ui/widgets/custom_text_form_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -127,9 +127,32 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: isLoginSelected
                         ? Column(
                             children: [
-                              CustomTextFormField(labelText: 'Email Address'),
+                              CustomTextFormField(
+                                labelText: 'Email Address',
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your email';
+                                  } else if (!RegExp(
+                                    r'^[^@]+@[^@]+\.[^@]+',
+                                  ).hasMatch(value)) {
+                                    return 'Please enter a valid email address';
+                                  }
+                                  return null;
+                                },
+                              ),
                               30.verticalSpace,
-                              CustomTextFormField(labelText: 'Password'),
+                              CustomTextFormField(
+                                labelText: 'Password',
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your password';
+                                  } else if (value.length < 6) {
+                                    return 'Password must be at least 6 characters long';
+                                  }
+                                  return null;
+                                },
+                              ),
                               25.verticalSpace,
                               Align(
                                 alignment: AlignmentGeometry.topLeft,
@@ -150,32 +173,75 @@ class _LoginScreenState extends State<LoginScreen> {
                                 foregroundColorcolor: Color(0xFFF6F6F9),
                                 label: 'Login',
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => HomePage(),
-                                    ),
-                                  );
+                                  if (_formKey.currentState!.validate()) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomePage(),
+                                      ),
+                                    );
+                                  }
                                 },
                               ),
                             ],
                           )
                         : Column(
                             children: [
-                              CustomTextFormField(labelText: 'Email Address'),
+                              CustomTextFormField(
+                                labelText: 'Email Address',
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your email';
+                                  } else if (!RegExp(
+                                    r'^[^@]+@[^@]+\.[^@]+',
+                                  ).hasMatch(value)) {
+                                    return 'Please enter a valid email address';
+                                  }
+                                  return null;
+                                },
+                              ),
                               30.verticalSpace,
-                              CustomTextFormField(labelText: 'Password'),
+                              CustomTextFormField(
+                                labelText: 'Password',
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your password';
+                                  } else if (value.length < 6) {
+                                    return 'Password must be at least 6 characters long';
+                                  }
+                                  return null;
+                                },
+                              ),
 
                               30.verticalSpace,
                               CustomTextFormField(
                                 labelText: 'Confirm Password',
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your password';
+                                  } else if (value.length < 6) {
+                                    return 'Password must be at least 6 characters long';
+                                  }
+                                  return null;
+                                },
                               ),
                               50.verticalSpace,
                               CustomElevatedButton(
                                 backgroundcolor: Color(0xFFFA4A0C),
                                 foregroundColorcolor: Color(0xFFF6F6F9),
                                 label: 'Sign Up',
-                                onTap: () {},
+                                onTap: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomePage(),
+                                      ),
+                                    );
+                                  }
+                                },
                               ),
                             ],
                           ),

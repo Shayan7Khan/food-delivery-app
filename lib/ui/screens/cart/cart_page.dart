@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/utils/theme.dart';
-import 'package:food_delivery_app/repository/cart_repository.dart';
+import 'package:food_delivery_app/core/utils/theme.dart';
+import 'package:food_delivery_app/core/repository/cart_repository.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -16,10 +16,13 @@ class _CartPageState extends State<CartPage> {
     final cartItems = CartRepository.getItems();
 
     return Scaffold(
-      backgroundColor:  Color(0xFFF2F2F2),
+      backgroundColor: Color(0xFFF2F2F2),
       appBar: AppBar(
-        title: Text("Orders" ,style: AppTextStyles.subheading.copyWith(fontSize: 20.sp),),
-        backgroundColor:  Color(0xFFF2F2F2),
+        title: Text(
+          "Orders",
+          style: AppTextStyles.subheading.copyWith(fontSize: 20.sp),
+        ),
+        backgroundColor: Color(0xFFF2F2F2),
         foregroundColor: Colors.black,
         elevation: 0,
       ),
@@ -56,7 +59,7 @@ class _CartPageState extends State<CartPage> {
                     icon: Icon(Icons.delete),
                     onPressed: () {
                       setState(() {
-                        CartRepository.removeItem(item); // rebuild safely
+                        CartRepository.removeItem(item);
                       });
                     },
                   ),
@@ -90,7 +93,6 @@ class _CartPageState extends State<CartPage> {
                 child: Text("Checkout", style: TextStyle(fontSize: 18.sp)),
               ),
             ),
-
     );
   }
 }

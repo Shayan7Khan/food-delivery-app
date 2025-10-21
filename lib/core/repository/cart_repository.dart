@@ -1,4 +1,4 @@
-import 'package:food_delivery_app/model/food_model.dart';
+import 'package:food_delivery_app/core/model/food_model.dart';
 
 class CartRepository {
   static final List<FoodModel> _cartItems = [];

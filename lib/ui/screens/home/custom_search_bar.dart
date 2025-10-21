@@ -4,11 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomSearchBar extends StatelessWidget {
   final String text;
   final IconData icon;
-  const CustomSearchBar({super.key, required this.text, required this.icon});
+   final ValueChanged<String>? onChanged;
+  const CustomSearchBar({
+    super.key,
+    required this.text,
+    required this.icon,
+    this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
       cursorColor: Colors.black,
       decoration: InputDecoration(
         filled: true,

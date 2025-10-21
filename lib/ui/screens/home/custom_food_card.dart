@@ -27,7 +27,7 @@ class CustomFoodCard extends StatelessWidget {
                 BoxShadow(
                   color: Colors.black12,
                   blurRadius: 6.r,
-                  offset: Offset(0, 3.h),
+                  offset: Offset(0, 8.h),
                 ),
               ],
             ),
@@ -49,7 +49,7 @@ class CustomFoodCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 8.h),
+                     8.verticalSpace,
                       Text(
                         "PKR $price",
                         style: TextStyle(
@@ -66,7 +66,7 @@ class CustomFoodCard extends StatelessWidget {
           ),
 
           Positioned(
-            left: 0,
+            left: 15.w,
             top: 10.h,
             bottom: 10.h,
             child: Container(

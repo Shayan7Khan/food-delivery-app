@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/ui/auth/login_and_signup_screen.dart';
-import 'package:food_delivery_app/utils/theme.dart';
-import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
+import 'package:food_delivery_app/ui/screens/auth/login_and_signup_screen.dart';
+import 'package:food_delivery_app/core/utils/theme.dart';
+import 'package:food_delivery_app/ui/widgets/custom_elevated_button.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -20,7 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 40.w),
+              padding: EdgeInsets.symmetric(vertical: 70.h, horizontal: 40.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     style: AppTextStyles.heading.copyWith(
                       color: Color(0xFFFFFFFF),
                       fontSize: 50.sp,
-                      height: 0.7.h,
+                      height: 1.h,
                     ),
                   ),
                   15.verticalSpace,
@@ -69,7 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   Positioned(
-                    left: 0.w,
+                    left: 2.w,
                     top: 0.h,
 
                     child: Image.asset(

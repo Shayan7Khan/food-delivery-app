@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/model/food_model.dart';
-import 'package:food_delivery_app/utils/theme.dart';
-import 'package:food_delivery_app/widgets/custom_elevated_button.dart';
+import 'package:food_delivery_app/core/model/food_model.dart';
+import 'package:food_delivery_app/core/utils/theme.dart';
+import 'package:food_delivery_app/ui/widgets/custom_elevated_button.dart';
 
 class FoodDetailsPage extends StatelessWidget {
   final FoodModel item;
@@ -54,7 +54,7 @@ class FoodDetailsPage extends StatelessWidget {
                      CustomElevatedButton(
                       backgroundcolor: Color(0xFFFA4A0C),
                       foregroundColorcolor: Color(0xFFF6F6F9),
-                      label: 'Add To Card - ${item.price}',
+                      label: 'Add To Card - PKR ${item.price}',
                       onTap: onAddToCart,
                       
                       ),

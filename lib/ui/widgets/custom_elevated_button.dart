@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/utils/theme.dart';
+import 'package:food_delivery_app/core/utils/theme.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final Color backgroundcolor;
